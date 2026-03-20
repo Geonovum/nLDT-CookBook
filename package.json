@@ -1,0 +1,14 @@
+{
+  "name": "nldt-cookbook",
+  "version": "1.0.0",
+  "description": "Collection of recipes",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "semver": "^7.7.4",
+    "yaml": "^2.8.2"
+  }
+}

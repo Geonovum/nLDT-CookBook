@@ -1,0 +1,161 @@
+{
+  "type": "recipe",
+  "conformsTo": [
+    "http://www.opengis.net/spec/recipe/0.3/conf/core",
+    "http://www.opengis.net/spec/recipe/0.3/conf/profiles",
+    "http://www.opengis.net/spec/recipe/0.3/conf/types-schemas"
+  ],
+  "id": "dt-rain-traffic",
+  "title": "Simuleer effect regen op verkeer",
+  "description": "Deze recipe brengt neerslag, riolering, wegennet en mobiliteitsmodellen bij elkaar om te simuleren welke impact een zware bui heeft op verkeer. Het resultaat kan gebruikt worden om knelpunten te identificeren, maatregelen te testen en scenario’s door te rekenen in de digital twin.",
+  "attribution": [
+    "Geonovum",
+    "Purple Polar Bear",
+    "Triply",
+    "Future Insight",
+    "Esri",
+    "Clappform",
+    "Nelen & Schuurmans",
+    "Goudappel",
+    "ilabs",
+    "Tygron",
+    "Imagem",
+    "Avineon Tensing",
+    "Synexis"
+  ],
+  "version": "1.0.0",
+  "tags": ["rain", "traffic", "climate"],
+  "license": "CC-BY-4.0",
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/json",
+      "title": "This document",
+      "href": "https://cookbook.nldt.geonovum.nl/?f=html"
+    },
+    {
+      "rel": "alternate",
+      "type": "text/html",
+      "title": "This document as HTML",
+      "href": "https://cookbook.nldt.geonovum.nl/daraa?f=html"
+    },
+    {
+      "rel": "codelists",
+      "title": "Codelists used in the data",
+      "href": "https://cookbook.nldt.geonovum.nl/codelists"
+    },
+    {
+      "rel": "conformance",
+      "title": "Recipe conformance classes implemented by this server",
+      "href": "https://cookbook.nldt.geonovum.nl/conformance"
+    }
+  ],
+  "ingredients": {
+    "magicNumber": 42,
+    "magicLink": {
+      "rel": "process",
+      "title": "multiply",
+      "type": "application/process+json",
+      "href": "http://localhost:8080/geonovum/v1/processes/multiply"
+    }
+  },
+  "processing": [
+    {
+      "id": "processing1",
+      "title": "blabla",
+      "description": "blabla",
+
+      "nodes": [
+        {
+          "id": "step1",
+          "link": {
+            "rel": "process",
+            "title": "add",
+            "type": "application/process+json",
+            "href": "http://localhost:8080/geonovum/v1/processes/add"
+          },
+          "body": {
+            "inputs": {
+              "number1": 19,
+              "number2": 7
+            },
+            "outputs": {
+              "sum": {
+                "transmissionMode": ["value"]
+              }
+            }
+          }
+        },
+        {
+          "id": "step2a",
+          "link": "$magicLink",
+          "body": {
+            "inputs": {
+              "number1": ":step1.outputs.sum",
+              "number2": 5
+            },
+            "outputs": {
+              "product": {
+                "transmissionMode": ["value"]
+              }
+            }
+          }
+        },
+        {
+          "id": "step2b",
+          "link": {
+            "rel": "process",
+            "title": "multiply",
+            "type": "application/process+json",
+            "href": "http://localhost:8080/geonovum/v1/processes/multiply"
+          },
+          "execution": {
+            "mode": "async"
+          },
+          "body": {
+            "inputs": {
+              "number1": ":step1.outputs.sum",
+              "number2": 6
+            },
+            "outputs": {
+              "product": {
+                "transmissionMode": ["value"]
+              }
+            },
+            "subscriber": {
+              "successUri": "http://localhost:8081/oven/v1/callback/:jobId?type=success",
+              "inProgressUri": "http://localhost:8081/oven/v1/callback/:jobId?type=inProgress",
+              "failedUri": "http://localhost:8081/oven/v1/callback/:jobId?type=failed"
+            }
+          }
+        },
+        {
+          "id": "step3",
+          "link": {
+            "rel": "process",
+            "title": "multiply",
+            "type": "application/process+json",
+            "href": "http://localhost:8080/geonovum/v1/processes/multiply"
+          },
+          "body": {
+            "inputs": {
+              "number1": ":step2b.outputs.product",
+              "number2": "$magicNumber"
+            },
+            "outputs": {
+              "product": {
+                "transmissionMode": ["value"]
+              }
+            }
+          }
+        }
+      ],
+
+      "subscriber": {
+        "successUri": ":serviceUrl/callback/:recipeId?type=success",
+        "inProgressUri": ":serviceUrl/callback/:recipeId?type=inProgress",
+        "failedUri": ":serviceUrl/callback/:recipeId?type=failed"
+      }
+    }
+  ]
+}

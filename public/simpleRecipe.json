@@ -1,0 +1,73 @@
+{
+  "type": "recipe",
+  "conformsTo": [
+    "http://www.opengis.net/spec/recipe/0.3/conf/core",
+    "http://www.opengis.net/spec/recipe/0.3/conf/profiles",
+    "http://www.opengis.net/spec/recipe/0.3/conf/types-schemas"
+  ],
+  "id": "simple-recipe",
+  "title": "Tel 2 gehele getallen op",
+  "description": "Det recipe telt 2 gehele getallen op.",
+  "attribution": [
+    "Geonovum"
+  ],
+  "version": "1.0.0",
+  "tags": ["math", "sample"],
+  "license": "CC-BY-4.0",
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/json",
+      "title": "This document",
+      "href": "https://appstore.dt/?f=html"
+    },
+    {
+      "rel": "alternate",
+      "type": "text/html",
+      "title": "This document as HTML",
+      "href": "https://appstore.dt/daraa?f=html"
+    },
+    {
+      "rel": "codelists",
+      "title": "Codelists used in the data",
+      "href": "https://appstore.dt/codelists"
+    },
+    {
+      "rel": "conformance",
+      "title": "Recipe conformance classes implemented by this server",
+      "href": "https://appstore.dt/conformance"
+    }
+  ],
+  "ingredients": {
+  },
+  "processing": [
+    {
+      "id": "processing1",
+      "title": "blabla",
+      "description": "blabla",
+
+      "nodes": [
+        {
+          "id": "step1",
+          "link": {
+            "rel": "process",
+            "title": "add",
+            "type": "application/process+json",
+            "href": "http://localhost:8080/geonovum/v1/processes/add"
+          },
+          "body": {
+            "inputs": {
+              "number1": 19,
+              "number2": 7
+            },
+            "outputs": {
+              "sum": {
+                "transmissionMode": ["value"]
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

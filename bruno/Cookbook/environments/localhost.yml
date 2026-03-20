@@ -1,0 +1,4 @@
+name: localhost
+variables:
+  - name: serviceHost
+    value: http://localhost:8083/cookbook/v1

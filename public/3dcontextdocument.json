@@ -1,0 +1,150 @@
+{
+  "type": "3dcontextdocument",
+  "conformsTo": [
+    "http://example.com/spec/3dcontextdocument/0.0/conf/core"
+  ],
+  "id": "dt-rain-traffic",
+  "title": "Simuleer effect regen op verkeer",
+  "description": "Deze recipe brengt neerslag, riolering, wegennet en mobiliteitsmodellen bij elkaar om te simuleren welke impact een zware bui heeft op verkeer. Het resultaat kan gebruikt worden om knelpunten te identificeren, maatregelen te testen en scenario’s door te rekenen in de digital twin.",
+  "attribution": [
+    "Geonovum",
+    "Purple Polar Bear",
+    "Triply",
+    "Future Insight",
+    "Esri",
+    "Clappform",
+    "Nelen & Schuurmans",
+    "Goudappel",
+    "ilabs",
+    "Tygron",
+    "Imagem",
+    "Avineon Tensing",
+    "Synexis"
+  ],
+  "version": "1.0.0",
+  "tags": ["rain", "traffic", "climate"],
+  "license": "CC-BY-4.0",
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/json",
+      "title": "This document",
+      "href": "https://example.com/?f=html"
+    },
+    {
+      "rel": "alternate",
+      "type": "text/html",
+      "title": "This document as HTML",
+      "href": "https://example.com/daraa?f=html"
+    },
+    {
+      "rel": "codelists",
+      "title": "Codelists used in the data",
+      "href": "https://example.com/codelists"
+    },
+    {
+      "rel": "conformance",
+      "title": "Recipe conformance classes implemented by this server",
+      "href": "https://example.com/conformance"
+    }
+  ],
+  "scene": {
+    "title": "Backdrop op OUP",
+    "description": "Brondata op OUP voor de Digital Twin Rotterdam",
+    "time": {
+      "current": "2025-01-01T12:00:00Z",
+      "start": "2020-01-01T00:00:00Z"
+    },
+    "layers": [
+      {
+        "rel": "items",
+        "title": "Aerial imagery als COG",
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+        "href": "https://rotterdam.nl/v1/collections/imagery/items",
+        "index": 0,
+        "visible": true
+      },
+      {
+        "rel": "items",
+        "title": "3D city model als 3DTiles",
+        "type": "model/gltf+json; profile=3dtiles",
+        "href": "https://rotterdam.nl/v1/collections/3d-city-model/items",
+        "index": 1,
+        "visible": true
+      },
+      {
+        "rel": "items",
+        "title": "DTM / maaiveldhoogte",
+        "type": "application/rdf+xml",
+        "href": "https://rotterdam.nl/v1/collections/DTM/items",
+        "index": 2,
+        "visible": false
+      },
+      {
+        "rel": "items",
+        "title": "Wegennet (incl. snelwegen en hoofdroutes)",
+        "type": "application/geo+json",
+        "href": "https://rotterdam.nl/v1/collections/wegennet/items",
+        "index": 3,
+        "visible": true
+      },
+      {
+        "rel": "items",
+        "title": "Sewer network / rioolstelsel",
+        "type": "application/geo+json",
+        "href": "https://rotterdam.nl/v1/collections/rioolstelsel/items",
+        "index": 4,
+        "visible": true
+      },
+      {
+        "rel": "items",
+        "title": "KNMI weather forecast / neerslagveld",
+        "type": "application/x-hdf5",
+        "href": "https://knmi.nl/v1/collections/forecast/items",
+        "index": 5,
+        "visible": true
+      }
+    ],
+    "cameras": [
+      {
+        "id": "camera1",
+        "title": "Zicht op Meent",
+        "description": "Perspective camera gericht op de Meent in Rotterdam",
+        "type": "application/geopose+json",
+        "GeoPose": {
+          "frame_spec": {
+            "model": "WGS-84",
+            "frame": "Y-Up-ENU"
+          },
+          "pose": {
+            "position": {
+              "lat": 51.4,
+              "lon": 5.02,
+              "h": 150.923
+            },
+            "quaternion": {
+              "x": 0.0104,
+              "y": -0.9851,
+              "z": -0.0026,
+              "w": 0.1715
+            }
+          }
+        }
+      },
+      {
+        "id": "camera2",
+        "title": "Zicht op Meent",
+        "description": "Perspective camera gericht op de Meent in Rotterdam",
+        "type": "application/xxx+json",
+        "heading": 90.0,
+        "tilt": 45.0,
+        "position": {
+          "lat": 51.5,
+          "lon": 5.0,
+          "z": 300.0
+        },
+        "crs": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      }
+    ]
+  }
+}

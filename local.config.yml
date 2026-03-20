@@ -1,0 +1,30 @@
+---
+server:
+  id: cookbook
+  port: 8083
+
+data:
+  path: public
+
+metadata:
+  identification:
+    title: todo
+    description: todo.
+    keywords:
+    - nldt
+    - dt
+    - cookbook
+    - recipe
+  contact:
+    contactName: Jane Doe
+    contactEmail: doe@acme.nl
+    creatorName: Then big creator
+    creatorUrl: https://data.somewhere.nl/
+    publisherName: Acme Inc.
+    publisherUrl: https://www.example.com/
+  license:
+    name: CC0 1.0
+    url: http://creativecommons.org/publicdomain/zero/1.0/deed.nl
+
+api:
+  version: 1.2.3
