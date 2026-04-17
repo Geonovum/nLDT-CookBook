@@ -51,8 +51,8 @@
     }
   ],
   "ingredients": {
-    "magicNumber": 42,
-    "magicLink": {
+    "mobilityData": 24,
+    "mobilityLink": {
       "rel": "process",
       "title": "multiply",
       "type": "application/process+json",
@@ -88,7 +88,7 @@
         },
         {
           "id": "step2a",
-          "link": "$magicLink",
+          "link": "$mobilityLink",
           "body": {
             "inputs": {
               "number1": ":step1.outputs.sum",
@@ -140,7 +140,7 @@
           "body": {
             "inputs": {
               "number1": ":step2b.outputs.product",
-              "number2": "$magicNumber"
+              "number2": "$mobilityData"
             },
             "outputs": {
               "product": {
