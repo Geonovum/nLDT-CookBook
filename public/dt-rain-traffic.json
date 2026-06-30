@@ -78,11 +78,6 @@
             "inputs": {
               "number1": 19,
               "number2": 7
-            },
-            "outputs": {
-              "sum": {
-                "transmissionMode": ["value"]
-              }
             }
           }
         },
@@ -93,11 +88,6 @@
             "inputs": {
               "number1": ":step1.outputs.sum",
               "number2": 5
-            },
-            "outputs": {
-              "product": {
-                "transmissionMode": ["value"]
-              }
             }
           }
         },
@@ -116,11 +106,6 @@
             "inputs": {
               "number1": ":step1.outputs.sum",
               "number2": 6
-            },
-            "outputs": {
-              "product": {
-                "transmissionMode": ["value"]
-              }
             },
             "subscriber": {
               "successUri": "http://localhost:8081/oven/v1/callback/:jobId?type=success",
@@ -141,11 +126,6 @@
             "inputs": {
               "number1": ":step2b.outputs.product",
               "number2": "$mobilityData"
-            },
-            "outputs": {
-              "product": {
-                "transmissionMode": ["value"]
-              }
             }
           }
         }

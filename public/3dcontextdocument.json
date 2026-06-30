@@ -1,8 +1,5 @@
 {
-  "type": "3dcontextdocument",
-  "conformsTo": [
-    "http://example.com/spec/3dcontextdocument/0.0/conf/core"
-  ],
+  "type": "web3dcontextdocument",
   "id": "dt-rain-traffic",
   "title": "Simuleer effect regen op verkeer",
   "description": "Deze recipe brengt neerslag, riolering, wegennet en mobiliteitsmodellen bij elkaar om te simuleren welke impact een zware bui heeft op verkeer. Het resultaat kan gebruikt worden om knelpunten te identificeren, maatregelen te testen en scenario’s door te rekenen in de digital twin.",
@@ -29,23 +26,13 @@
       "rel": "self",
       "type": "application/json",
       "title": "This document",
-      "href": "https://example.com/?f=html"
+      "href": "https://example.com/f=json"
     },
     {
       "rel": "alternate",
       "type": "text/html",
       "title": "This document as HTML",
-      "href": "https://example.com/daraa?f=html"
-    },
-    {
-      "rel": "codelists",
-      "title": "Codelists used in the data",
-      "href": "https://example.com/codelists"
-    },
-    {
-      "rel": "conformance",
-      "title": "Recipe conformance classes implemented by this server",
-      "href": "https://example.com/conformance"
+      "href": "https://example.com/f=html"
     }
   ],
   "scene": {

@@ -59,11 +59,6 @@
             "inputs": {
               "number1": 19,
               "number2": 7
-            },
-            "outputs": {
-              "sum": {
-                "transmissionMode": ["value"]
-              }
             }
           }
         }
